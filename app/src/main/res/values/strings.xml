@@ -1,0 +1,20 @@
+<resources>
+  <string name="app_name">Exercise2</string>
+  <string name="databuku">DataBuku</string>
+  <string name="search">Cari</string>
+  <string name="rentB">RentBook</string>
+  <string name="judul1">Aplikasi Rental Book</string>
+  <string name="idkecil">buku buku yuk</string>
+  <string name="sewabook">Sewa Buku</string>
+  <string name="nama">Nama Peminjam</string>
+  <string name="alamat">Alamat</string>
+  <string name="nohp">No. HP</string>
+  <string name="genrebook">Genre Buku</string>
+  <string name="kodebuku">Kode Buku</string>
+  <string name="nabok">Judul Buku</string>
+  <string name="genbok">Genre Buku</string>
+  <string name="kobok">Kode Buku</string>
+  <string name="btnOk">Oke</string>
+  <string name="debuk">Detail Buku</string>
+  <string name="tbuk">Nama Author</string>
+</resources>

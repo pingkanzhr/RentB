@@ -1,7 +1,9 @@
 package com.example.exercise2;
 
+
+// kelas setter and getter
 public class Buku {
-    private String namabuku;
+    private String namabuku; //deklarasi
     private String namaauthor;
     private String genre;
     private String ekode,kode;

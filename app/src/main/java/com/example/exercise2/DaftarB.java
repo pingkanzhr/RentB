@@ -24,22 +24,24 @@ import java.security.cert.PolicyNode;
 import java.util.ArrayList;
 
 public class DaftarB extends AppCompatActivity {
-    public static final String TAG = "TAG";
+    public static final String TAG = "TAG"; // deklarasi
     private DatabaseReference database;
     RecyclerView rvView;
     AdapterBuku adapter;
     public static ArrayList<Buku> bukuArrayList = new ArrayList<>();
     String namabuku,author,genre,kodebuku;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // mendefinisikan dan men-set layout si rvView nya
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_daftar_bu);
-        rvView = findViewById(R.id.dafbuku);
+        rvView = findViewById(R.id.dafbuku); // inisisasi rvView dengan komponennya
         rvView.setLayoutManager(new LinearLayoutManager(this));
 
+        //inisialisasi dan mengambil data pada databse firebase
         database = FirebaseDatabase.getInstance().getReference();
-        database.child("Buku")
+        database.child("Buku") // mengambil data dari si buku
                 .orderByChild("namabuku")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -52,6 +54,8 @@ public class DaftarB extends AppCompatActivity {
                         }
                     }
 
+                    //kode ini diambil ketika kita mendapatkan error dan pengambilan data nya gagal
+                    // dan akan memprint error nya ek logcat
                     @Override
                     public void onCancelled(DatabaseError error) {
                         System.out.println(error.getDetails() + "" + error.getMessage());

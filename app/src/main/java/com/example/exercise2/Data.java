@@ -2,6 +2,7 @@ package com.example.exercise2;
 
 import java.io.Serializable;
 
+//activity untuk setter and getter data untuk kelas java
 public class Data implements Serializable {
     private String nama;
     private String alamat;

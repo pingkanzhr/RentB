@@ -32,7 +32,7 @@ import java.util.Random;
 
 public class SewaBukuAct extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private DatabaseReference database;
-
+    //deklarasi
     private Button btselesai;
     private EditText eNama;
     private EditText eAlamat;
@@ -41,20 +41,20 @@ public class SewaBukuAct extends AppCompatActivity implements AdapterView.OnItem
     public static String kodesewa;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) { //inisialisasi dan set layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_sewa);
-
+        // set id pada layout
         btselesai = findViewById(R.id.selesaiHitung);
         eNama = findViewById(R.id.eTNama);
         eAlamat = findViewById(R.id.eTAlamat);
         nohp = findViewById(R.id.eTHP);
         judul = findViewById(R.id.eTgenre);
-
+        //inisialisasi dan mengambil data pada database firebase
         database = FirebaseDatabase.getInstance().getReference();
         btselesai.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // method ini dibuat untuk kondisi untuk submit data
                 Random r =  new Random();
                 int koderandom =  r.nextInt(999999);
                 kodesewa = String.format("%06d",koderandom);
@@ -62,10 +62,10 @@ public class SewaBukuAct extends AppCompatActivity implements AdapterView.OnItem
                 {
                     submitData(new Data(eNama.getText().toString(), eAlamat.getText().toString(), nohp.getText().toString(), judul.getText().toString(),kodesewa));
                     startActivity(new Intent(getApplicationContext(),KodeSewaTampil.class));
-                }
+                } //jika setelah kita mengisi dan mengsubmit data maka kita ke kelas selanjutnya
                 else {
                     Toast.makeText(getApplicationContext(), "Data Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
-                }
+                }// lalu jika misalkan kita tidak melakukan pengisian maka akan muncul notif "tsb"
                 InputMethodManager imm = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(judul.getWindowToken(),0);
@@ -74,7 +74,7 @@ public class SewaBukuAct extends AppCompatActivity implements AdapterView.OnItem
     }
     public void submitData(Data data){
         //
-
+        // mengmbil data pada "data" di firebase database
         database.child("Data").push().setValue(data).addOnSuccessListener(this, new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {

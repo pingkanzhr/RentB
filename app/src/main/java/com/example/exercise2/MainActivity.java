@@ -17,21 +17,21 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //mendefinisikan dan men-set layout si rvView nya
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//set button pada layout
         Button informasi = findViewById(R.id.btn_info_buku);
         Button sewa = findViewById(R.id.btn_sewa);
 
-        informasi.setOnClickListener(new View.OnClickListener() {
+        informasi.setOnClickListener(new View.OnClickListener() { //kodisi saat mengklik btn actvity
             @Override
             public void onClick(View v) {
                 startActivity (new Intent(getApplicationContext(), DaftarB.class));
             }
         });
 
-        sewa.setOnClickListener(new View.OnClickListener() {
+        sewa.setOnClickListener(new View.OnClickListener() { //kodisi saat mengklik btn actvity
             @Override
             public void onClick(View v) {
                 startActivity(SewaBukuAct.getActIntent(MainActivity.this));
